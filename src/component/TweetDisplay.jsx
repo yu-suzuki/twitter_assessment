@@ -4,7 +4,6 @@ import {tweetURL} from "../constants/constant"
 import {fetch} from 'whatwg-fetch'
 import moment from 'moment';
 import ReactDOM from "react-dom";
-import {withRouter} from "react-router";
 
 
 function TweetDisplay (props) {

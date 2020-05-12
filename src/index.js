@@ -20,7 +20,7 @@ ReactDOM.render(
     <SnackbarProvider maxSnack={3}>
         <Provider store={store}>
             <PersistGate loading={null} persistor={persistor}>
-                <Router>
+                <Router basename={'/twitter_assessment'}>
                     <Switch>
                         <Route exact path="/"><Home/></Route>
                         <Route path="/sign_in"><SignIn/></Route>
