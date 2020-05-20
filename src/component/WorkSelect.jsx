@@ -4,7 +4,6 @@ import {checkUser} from "../modules/user_info";
 import {withSnackbar} from "notistack";
 import {withRouter} from "react-router";
 import {baseURL} from "../constants/constant";
-import ReactDOM from "react-dom";
 import WorkItemList from "./WorkItemList";
 
 
@@ -18,9 +17,18 @@ function setWorkID(work_id, work_title) {
 
 
 class WorkSelect extends Component {
-    handleClick(r, t) {
-        this.props.setWorkID(r, t);
+    handleClick = (i) => {
+        this.props.setWorkID(i.id, i.name);
         this.props.history.push('/dashboard')
+    }
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            worklist: {
+                tasks: []
+            }
+        }
     }
 
     componentDidMount() {
@@ -36,17 +44,16 @@ class WorkSelect extends Component {
         }).then(r => {
             return r.json()
         }).then(r => {
-            ReactDOM.render(
-                <WorkItemList item_list={r} handleClick={this.handleClick.bind(this)}/>
-                ,
-                document.getElementById('work_select'));
+            let a = this.state
+            a.worklist = r
+           this.setState(a)
         });
     }
 
     render() {
         return (
             <Fragment>
-                <div id="work_select"/>
+                <WorkItemList worklist={this.state.worklist} handleClick={(i) => this.handleClick(i)}/>
             </Fragment>
         )
     }

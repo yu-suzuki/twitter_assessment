@@ -9,6 +9,7 @@ import {useStyles} from "../constants/constant";
 import Grid from "@material-ui/core/Grid";
 
 export function Header(props) {
+    console.log(props)
     const classes = useStyles();
 
     function handleLogout() {
@@ -26,7 +27,8 @@ export function Header(props) {
                         alignItems="center"
                     >
                     <Typography variant="h6" className={classes.title}>
-                        <span id={'count'} className={classes.bold} />件, <span id={'point'} className={classes.bold} />pt
+                        <span id={'count'} className={classes.bold} >{props.count}</span>件,
+                        <span id={'point'} className={classes.bold} >{props.point}</span>pt
                     </Typography>
                     </Grid>
                     <Grid

@@ -17,7 +17,9 @@ class Work extends Component {
         this.state = {
             select_options: [],
             id: '',
-            tweet_id: ''
+            tweet_id: '',
+            point: 0,
+            count: 0
         };
         this.changeTweet = this.changeTweet.bind(this);
     }
@@ -40,7 +42,6 @@ class Work extends Component {
         }).then(r => {
             return r.json();
         }).then(r => {
-                console.log(r.id)
                 this.setState({tweet_id: r.id});
                 ReactDOM.render(
                     <TweetDisplay id={r.id}/>
@@ -48,8 +49,7 @@ class Work extends Component {
                     document.getElementById('tweet'));
             }
         ).catch(r => {
-            console.log(r)
-            //this.props.enqueueSnackbar('ツイートがもうありません', {variant: 'warning'})
+            this.props.enqueueSnackbar('ツイートがもうありません', {variant: 'warning'})
         })
     };
 
@@ -92,6 +92,7 @@ class Work extends Component {
                             ,
                             document.getElementById('tweet'));
                     }
+                    this.updateUserStatus()
                 }).catch(r => {
                     this.props.enqueueSnackbar('サーバのエラーです．しばらくお待ちください', {variant: 'error'})
                 });
@@ -122,7 +123,6 @@ class Work extends Component {
     };
 
     showAssessmentOptions(id) {
-        console.log(this.state);
         if (typeof id === 'undefined' || id === null) {
             ReactDOM.render(
                 <SelectButton options={this.state.options} type={'primary'} handleClick={this.handleClick}/>
@@ -137,8 +137,6 @@ class Work extends Component {
                 ,
                 document.getElementById('select_button'));
         }
-
-
     }
 
     changeTweet = () => {
@@ -150,17 +148,35 @@ class Work extends Component {
         this.props.history.push('/dashboard')
     };
 
-    componentDidMount() {
+    updateUserStatus(){
+        const user = this.props.user;
+        const url = new URL(baseURL+'/check_point');
+        url.searchParams.append('uid', user.uid);
+        url.searchParams.append('tid', user.work_id);
+        url.searchParams.append('client', user.client);
+        url.searchParams.append('access-token', user.authtoken);
+        fetch(url).then((res) => {
+            return res.json();
+        }).then((res) => {
+            console.log(res)
+            let a = this.state
+            a.point = res.point
+            a.count = res.count
+            this.setState(a)
+        })
+    }
+
+    componentDidMount()  {
         const user = this.props.user;
         this.getAssessmentOptions(user);
-        this.getTweet(this.props.user);
-        checkPoint(user.uid, user.work_id, user.client, user.authtoken);
+        this.getTweet(user);
+        this.updateUserStatus();
     }
 
     render() {
         return (
             <Fragment>
-                <Header logOut={this.handleLogout}/>
+                <Header logOut={this.handleLogout} point={this.state.point} count={this.state.count}/>
                 <div id="tweet"/>
                 <div id="select_button"/>
             </Fragment>

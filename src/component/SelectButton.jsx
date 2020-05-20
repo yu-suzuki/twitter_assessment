@@ -10,10 +10,8 @@ function SelectButton(props) {
     const classes = useStyles();
 
     let list = [];
-    console.log(props);
 
     props.options.map((data, index) => {
-        console.log(data);
         let iconType = '';
         switch(props.type) {
             case 'primary':

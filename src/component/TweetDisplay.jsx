@@ -7,7 +7,6 @@ import ReactDOM from "react-dom";
 
 
 function TweetDisplay (props) {
-    console.log(props)
     if (typeof props.id === 'undefined') {
         console.log('undefined')
 

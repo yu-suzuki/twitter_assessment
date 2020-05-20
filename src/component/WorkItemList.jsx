@@ -15,10 +15,11 @@ function WorkItemList(props) {
     const classes = useStyles();
     let list = [];
 
-    props.item_list.forEach((r) => {
+    props.worklist.tasks.map((r) => {
+        console.log(r.id)
         list.push(
             <Fragment key={r.id}>
-                <ListItem alignItems="flex-start" key={r.id} onClick={() => props.handleClick(r.id, r.name)}>
+                <ListItem alignItems="flex-start" key={r.id} onClick={() => props.handleClick(r)}>
                     <ListItemAvatar>
                         <Avatar key={r.id} >{r.id}</Avatar>
                     </ListItemAvatar>
@@ -43,8 +44,10 @@ function WorkItemList(props) {
                 <Divider variant="inset" component="li"/>
             </Fragment>
         )
-    })
+        return list;
+    }
 
+    )
 
     return (
         <Fragment>

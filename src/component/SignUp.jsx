@@ -27,6 +27,7 @@ class SignUp extends Component {
                 })
             }
         }).catch((error) => {
+            console.log(error);
             this.props.enqueueSnackbar('ネットワークかサーバに問題があります', {variant: 'error'})
         })
     }

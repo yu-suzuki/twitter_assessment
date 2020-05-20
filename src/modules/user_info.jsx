@@ -14,7 +14,7 @@ function orgRound(value, base) {
     return Math.round(value * base) / base;
 }
 
-export const checkPoint = (uid, tid, client, access_token) => {
+export function checkPoint (uid, tid, client, access_token) {
     const url = new URL(baseURL+'/check_point');
     url.searchParams.append('uid', uid);
     url.searchParams.append('tid', tid);
@@ -36,6 +36,7 @@ export const checkPoint = (uid, tid, client, access_token) => {
             </Fragment>
             ,
             document.getElementById('point'));
+        return res
     });
 };
 
@@ -93,6 +94,7 @@ export function reducer(state = initialState, action) {
                 name: null
             };
         case 'SETWORKID':
+            console.log(action.work_id)
             return Object.assign({}, state, {
                 work_id: action.work_id,
                 work_title: action.work_title
