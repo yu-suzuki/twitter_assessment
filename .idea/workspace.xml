@@ -2,24 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a063f8c3-e20d-4401-aaf6-0e55f731b63a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc (Gehirn の競合コピー 2020-03-03).xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sshConfigs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/twitter_assessment (Gehirn の競合コピー 2020-03-03).iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/webServers.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace (Gehirn の競合コピー 2020-03-03).xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace (Gehirn の競合コピー 2020-03-09).xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace (Gehirn の競合コピー 2020-03-23).xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/Dashboard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/Dashboard.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/Header.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/component/SelectButton.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/SelectButton.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/SignUp.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/SignUp.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/TweetDisplay.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/TweetDisplay.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/Work.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/Work.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/WorkItemList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/WorkItemList.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/WorkSelect.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/WorkSelect.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/user_info.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/user_info.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,6 +141,7 @@
       <workItem from="1589896192167" duration="228000" />
       <workItem from="1589935418256" duration="2291000" />
       <workItem from="1589954492727" duration="10205000" />
+      <workItem from="1589981705240" duration="1366000" />
     </task>
     <task id="LOCAL-00001" summary="new">
       <created>1588699035023</created>

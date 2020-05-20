@@ -10,6 +10,7 @@ function SelectButton(props) {
     const classes = useStyles();
 
     let list = [];
+    console.log(props)
 
     props.options.map((data, index) => {
         let iconType = '';
