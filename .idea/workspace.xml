@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="a063f8c3-e20d-4401-aaf6-0e55f731b63a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/SelectButton.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/SelectButton.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -283,6 +282,10 @@
       <screen x="0" y="23" width="2048" height="1177" />
     </state>
     <state x="607" y="404" key="ftp.server.browser/0.23.2048.1177@0.23.2048.1177" timestamp="1589293206336" />
+    <state x="623" y="620" key="git4idea.merge.GitPullDialog" timestamp="1590023156878">
+      <screen x="0" y="23" width="3008" height="1589" />
+    </state>
+    <state x="623" y="620" key="git4idea.merge.GitPullDialog/0.23.3008.1589@0.23.3008.1589" timestamp="1590023156878" />
     <state x="573" y="531" width="253" height="278" key="jetbrains.javascript.buildTools.run-task-popup" timestamp="1589288937463">
       <screen x="0" y="23" width="2048" height="1178" />
     </state>
