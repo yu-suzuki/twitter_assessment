@@ -148,6 +148,10 @@ class Work extends Component {
         this.props.history.push('/dashboard')
     };
 
+    handleInstruction = () => {
+        this.props.history.push('/instruction')
+    }
+
     updateUserStatus(){
         const user = this.props.user;
         const url = new URL(baseURL+'/check_point');
@@ -176,7 +180,8 @@ class Work extends Component {
     render() {
         return (
             <Fragment>
-                <Header logOut={this.handleLogout} point={this.state.point} count={this.state.count}/>
+                <Header logOut={this.handleLogout} point={this.state.point} count={this.state.count}
+                        goInstruction={this.handleInstruction}/>
                 <div id="tweet"/>
                 <div id="select_button"/>
             </Fragment>

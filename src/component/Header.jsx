@@ -16,6 +16,10 @@ export function Header(props) {
         props.logOut()
     }
 
+    function handleInstruction() {
+        props.goInstruction()
+    }
+
     return (
         <Fragment>
             <AppBar position="fixed">
@@ -37,6 +41,7 @@ export function Header(props) {
                         justify="flex-end"
                         alignItems="center"
                     >
+                        <Button color="inherit" onClick={handleInstruction}>作業説明</Button>
                         <Button color="inherit" onClick={handleLogout}>終了</Button>
                     </Grid>
                 </Toolbar>
