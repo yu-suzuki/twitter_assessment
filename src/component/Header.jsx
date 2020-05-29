@@ -32,7 +32,7 @@ export function Header(props) {
                     >
                     <Typography variant="h6" className={classes.title}>
                         <span id={'count'} className={classes.bold} >{props.count}</span>件,
-                        <span id={'point'} className={classes.bold} >{props.point}</span>pt
+                        <span id={'point'} className={classes.bold} >{props.point}</span>pt（{props.evaluated}件評価済)
                     </Typography>
                     </Grid>
                     <Grid

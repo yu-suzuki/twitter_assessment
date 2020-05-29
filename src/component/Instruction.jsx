@@ -10,7 +10,7 @@ import {withRouter} from "react-router";
 function Instruction(props) {
     const classes = useStyles();
     const [value, setValue] = useState({name: '', instructions: ['']})
-    const id=5
+    const id=props.user.work_id
 
     useEffect(() => {
         const url = new URL(baseURL + '/show_instruction?id=' + id)

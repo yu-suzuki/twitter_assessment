@@ -4,7 +4,6 @@ import {connect} from "react-redux";
 import {withRouter} from "react-router";
 import {Header} from "./Header";
 import {withSnackbar} from "notistack";
-import {checkPoint} from "../modules/user_info";
 import SelectButton from "./SelectButton";
 import TweetDisplay from "./TweetDisplay";
 import {baseURL} from "../constants/constant";
@@ -19,7 +18,8 @@ class Work extends Component {
             id: '',
             tweet_id: '',
             point: 0,
-            count: 0
+            count: 0,
+            evaluated: 0
         };
         this.changeTweet = this.changeTweet.bind(this);
     }
@@ -166,6 +166,7 @@ class Work extends Component {
             let a = this.state
             a.point = res.point
             a.count = res.count
+            a.evaluated = res.evaluated
             this.setState(a)
         })
     }
@@ -181,6 +182,7 @@ class Work extends Component {
         return (
             <Fragment>
                 <Header logOut={this.handleLogout} point={this.state.point} count={this.state.count}
+                        evaluated={this.state.evaluated}
                         goInstruction={this.handleInstruction}/>
                 <div id="tweet"/>
                 <div id="select_button"/>
