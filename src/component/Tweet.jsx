@@ -12,7 +12,7 @@ const useStyles = makeStyles(theme => ({
     root: {
         flexGrow: 1,
         maxWidth: 345,
-        padding: '80px 0px',
+        padding: '140px 0px',
         margin: '0 auto',
     },
     card: {

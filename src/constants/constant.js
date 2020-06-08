@@ -79,5 +79,5 @@ export const useStyles = makeStyles((theme) => ({
     },
     selected: {
         color: theme.palette.secondary.main
-    }
+    },
 }));

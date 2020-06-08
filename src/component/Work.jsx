@@ -162,11 +162,11 @@ class Work extends Component {
         fetch(url).then((res) => {
             return res.json();
         }).then((res) => {
-            console.log(res)
             let a = this.state
             a.point = res.point
             a.count = res.count
             a.evaluated = res.evaluated
+            a.approved = res.approved
             this.setState(a)
         })
     }
@@ -183,7 +183,9 @@ class Work extends Component {
             <Fragment>
                 <Header logOut={this.handleLogout} point={this.state.point} count={this.state.count}
                         evaluated={this.state.evaluated}
-                        goInstruction={this.handleInstruction}/>
+                        goInstruction={this.handleInstruction}
+                        approved={this.state.approved}
+                />
                 <div id="tweet"/>
                 <div id="select_button"/>
             </Fragment>
