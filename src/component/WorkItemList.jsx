@@ -16,37 +16,38 @@ function WorkItemList(props) {
     let list = [];
 
     props.worklist.tasks.map((r) => {
-        console.log(r.id)
-        list.push(
-            <Fragment key={r.id}>
-                <ListItem alignItems="flex-start" key={r.id} onClick={() => props.handleClick(r)}>
-                    <ListItemAvatar>
-                        <Avatar key={r.id} >{r.id}</Avatar>
-                    </ListItemAvatar>
-                    <ListItemText
-                        primary={r.name}
-                        key={r.id}
-                        secondary={
-                            <Fragment>
-                                <Typography
-                                    component="span"
-                                    variant="body2"
-                                    className={classes.inline}
-                                    color="textPrimary"
-                                >
-                                    {r.subtitle}
-                                </Typography>
-                                {"--"}
-                            </Fragment>
-                        }
-                    />
-                </ListItem>
-                <Divider variant="inset" component="li"/>
-            </Fragment>
-        )
-        return list;
-    }
-
+            console.log(r)
+            if (r.available === true) {
+                list.push(
+                    <Fragment key={r.id}>
+                        <ListItem alignItems="flex-start" key={r.id} onClick={() => props.handleClick(r)}>
+                            <ListItemAvatar>
+                                <Avatar key={r.id}>{r.id}</Avatar>
+                            </ListItemAvatar>
+                            <ListItemText
+                                primary={r.name}
+                                key={r.id}
+                                secondary={
+                                    <Fragment>
+                                        <Typography
+                                            component="span"
+                                            variant="body2"
+                                            className={classes.inline}
+                                            color="textPrimary"
+                                        >
+                                            {r.subtitle}
+                                        </Typography>
+                                        {"--"}
+                                    </Fragment>
+                                }
+                            />
+                        </ListItem>
+                        <Divider variant="inset" component="li"/>
+                    </Fragment>
+                )
+            }
+            return list;
+        }
     )
 
     return (

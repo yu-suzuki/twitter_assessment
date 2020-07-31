@@ -3,7 +3,7 @@
   <component name="WebServers">
     <option name="servers">
       <webServer id="1c6f2d4f-dbaa-4278-94be-80c7e5922f6b" name="www" url="http://www.db.info.gifu-u.ac.jp/twitter_assessment">
-        <fileTransfer rootFolder="/var/www/html/twitter_assessment" accessType="SFTP" host="www" port="22" sshConfigId="37939f78-5a30-403f-855b-2cc88791ce56" sshConfig="ysuzuki@www:22 agent" authAgent="true">
+        <fileTransfer rootFolder="/var/www/twitter_assessment" accessType="SFTP" host="www" port="22" sshConfigId="37939f78-5a30-403f-855b-2cc88791ce56" sshConfig="ysuzuki@www:22 agent" authAgent="true">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>

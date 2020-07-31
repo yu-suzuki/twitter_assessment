@@ -34,7 +34,7 @@ class WorkSelect extends Component {
     componentDidMount() {
         checkUser(this.props.user.uid, this.props.user.client, this.props.user.authtoken, this.props, true);
 
-        let url = new URL(baseURL + '/show_all_tasks');
+        let url = new URL(baseURL + '/get_tasks');
 
         fetch(url, {
             method: 'GET',
@@ -46,7 +46,7 @@ class WorkSelect extends Component {
         }).then(r => {
             let a = this.state
             a.worklist = r
-           this.setState(a)
+            this.setState(a)
         });
     }
 
