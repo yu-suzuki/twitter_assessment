@@ -17,7 +17,12 @@ function DashboardDisplay (props) {
     const classes = useStyles();
 
     function handleStart() {
-        props.history.push('/work');
+        console.log(props)
+        if(props.user.work_type === "text_answer"){
+            props.history.push('/work_text');
+        } else {
+            props.history.push('/work');
+        }
     }
 
     function handleInstruction() {

@@ -7,18 +7,19 @@ import {baseURL} from "../constants/constant";
 import WorkItemList from "./WorkItemList";
 
 
-function setWorkID(work_id, work_title) {
+function setWorkID(work_id, work_title, work_type) {
     return ({
         type: 'SETWORKID',
         work_id,
-        work_title
+        work_title,
+        work_type
     });
 }
 
 
 class WorkSelect extends Component {
     handleClick = (i) => {
-        this.props.setWorkID(i.id, i.name);
+        this.props.setWorkID(i.id, i.name, i.answer_type);
         this.props.history.push('/dashboard')
     }
 

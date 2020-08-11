@@ -97,12 +97,14 @@ export function reducer(state = initialState, action) {
             console.log(action.work_id)
             return Object.assign({}, state, {
                 work_id: action.work_id,
-                work_title: action.work_title
+                work_title: action.work_title,
+                work_type: action.work_type
             });
         case 'UNSETWORKID':
             return {
                 work_id: null,
-                work_title: null
+                work_title: null,
+                work_type: null
             };
         default:
             return state;

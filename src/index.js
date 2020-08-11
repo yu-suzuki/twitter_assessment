@@ -15,6 +15,7 @@ import {SnackbarProvider} from 'notistack';
 import Instruction from "./component/Instruction";
 import Work from "./component/Work";
 import WorkSelect from "./component/WorkSelect";
+import WorkText from "./component/WorkText";
 
 ReactDOM.render(
     <SnackbarProvider maxSnack={3}>
@@ -30,6 +31,7 @@ ReactDOM.render(
                         <Route path="/change_password"><ChangePassword/></Route>
                         <Route path="/instruction"><Instruction/></Route>
                         <Route path="/work"><Work/></Route>
+                        <Route path="/work_text"><WorkText/></Route>
                         <Route path="/work_select"><WorkSelect/></Route>
                     </Switch>
                 </Router>
