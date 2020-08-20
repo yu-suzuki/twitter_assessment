@@ -16,7 +16,7 @@ function WorkTextQuestion(props) {
     } else if (q.type === 'multi_select') {
         return (
             <Fragment>
-                <WorkTextMultiSelect text={q.text} onClick={(v) => props.handleClick(v)}/>
+                <WorkTextMultiSelect text={q.text} answer={props.answer} onClick={(v) => props.handleClick(v)}/>
             </Fragment>
         )
     } else {

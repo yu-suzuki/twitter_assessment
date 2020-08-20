@@ -25,17 +25,22 @@ const useStyles = makeStyles((theme) => ({
 
 function WorkTextMultiSelect(props) {
     const classes = useStyles();
-    const [state, setState] = React.useState({
-        gilad: true,
-        jason: false,
-        antoine: false,
-    });
+    const [state, setState] = React.useState({});
 
     const handleChange = (event) => {
         setState({...state, [event.target.name]: event.target.checked});
     };
 
-    const {gilad, jason, antoine} = state;
+    const {gilad} = state;
+
+    function Checkboxes() {
+        console.log(state)
+        return props.answer.other_answers.map(a => {
+            return (
+                <FormControlLabel control={<Field component={Checkbox} type="checkbox" checked={a.fact} onChange={handleChange} name={a.fact} />} label={a.fact} />
+            )
+        })
+    }
 
     return (
         <Formik
@@ -54,27 +59,16 @@ function WorkTextMultiSelect(props) {
             {({submitForm, isSubmitting, errors}) => (
                 <Form>
                     <Box>
-                    <div className={classes.root}>
-                        <FormControl component="fieldset" className={classes.formControl}>
-                            <FormLabel component="legend">{props.text}</FormLabel>
-                            <FormGroup>
-                                <FormControlLabel
-                                    control={<Field component={Checkbox}  type="checkbox" checked={gilad} onChange={handleChange} name="gilad" />}
-                                    label="Gilad Gray"
-                                />
-                                <FormControlLabel
-                                    control={<Field component={Checkbox}  type="checkbox" checked={jason} onChange={handleChange} name="jason" />}
-                                    label="Jason Killian"
-                                />
-                                <FormControlLabel
-                                    control={<Field component={Checkbox}  type="checkbox" checked={antoine} onChange={handleChange} name="antoine" />}
-                                    label="Antoine Llorca"
-                                />
-                            </FormGroup>
-                            <FormHelperText>似ているものをクリックしてください</FormHelperText>
-                        </FormControl>
+                        <div className={classes.root}>
+                            <FormControl component="fieldset" className={classes.formControl}>
+                                <FormLabel component="legend">{props.text}</FormLabel>
+                                <FormGroup>
+                                    {Checkboxes()}
+                                </FormGroup>
+                                <FormHelperText>似ているものをクリックしてください</FormHelperText>
+                            </FormControl>
 
-                    </div>
+                        </div>
                         <Button
                             variant="contained"
                             color="primary"

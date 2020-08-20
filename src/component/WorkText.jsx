@@ -165,7 +165,9 @@ function WorkText(props) {
         console.log('click '+JSON.stringify(value))
         switch(step){
             case 0:
-                setAnswer({fact: String(value.text)});
+                let f = answer
+                f.fact = String(value.text)
+                setAnswer(f);
                 break;
             default:
                 break;
@@ -197,13 +199,13 @@ function WorkText(props) {
                         subheader={values.date}
                     />
                     <Typography variant="body2" color="textSecondary" component="p">
-                        {values.text}({values.tweet_id})
+                        {values.text}
                     </Typography>
                 </CardContent>
             </Card>
             <AppBar position="fixed" color="transparent" className={classes.appBar}>
                 <Toolbar>
-                    <WorkTextQuestion step={step} question={questions[step]} handleClick={(v) => handleClick(v)}/>
+                    <WorkTextQuestion step={step} question={questions[step]} answer={answer} handleClick={(v) => handleClick(v)}/>
                 </Toolbar>
             </AppBar>
         </Fragment>
