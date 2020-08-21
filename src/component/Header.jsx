@@ -4,7 +4,6 @@ import {withRouter} from "react-router";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from '@material-ui/core/Typography';
-import Button from "@material-ui/core/Button";
 import {useStyles} from "../constants/constant";
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
@@ -59,22 +58,11 @@ export function Header(props) {
                                 未承認pt
                             </Typography>
                             <Typography variant="h5" className={classes.title} align={'center'}>
-                                <span id={'count'} className={classes.bold}>{props.point - props.approved}</span>
+                                <span id={'count'} className={classes.bold}>{String(parseFloat(props.point) - parseFloat(props.approved))}</span>
                             </Typography>
                         </Box>
                     </Grid>
 
-                </Toolbar>
-                <Toolbar variant="dense">
-                    <Grid
-                        container
-                        direction="row"
-                        justify="flex-end"
-                        alignItems="center"
-                    >
-                        <Button color="inherit" onClick={handleInstruction}>説明</Button>
-                        <Button color="inherit" onClick={handleLogout}>終了</Button>
-                    </Grid>
                 </Toolbar>
             </AppBar>
         </Fragment>

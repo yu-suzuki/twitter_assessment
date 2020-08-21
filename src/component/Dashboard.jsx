@@ -16,8 +16,6 @@ class Dashboard extends Component {
 
 
     componentDidMount() {
-        console.log(this.props)
-        console.log(this.state)
         checkUser(this.props.user.uid, this.props.user.client, this.props.user.authtoken, this.props, true);
         this.setState({point: checkPoint(this.props.user.uid, this.props.user.work_id, this.props.user.client, this.props.user.authtoken )});
     }
@@ -34,7 +32,6 @@ class Dashboard extends Component {
 function mapStateToProps(state) {
     return {
         user: state.user,
-        a: state
     }
 }
 

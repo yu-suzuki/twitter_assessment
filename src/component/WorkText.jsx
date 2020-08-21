@@ -25,22 +25,22 @@ const useStyles = makeStyles(theme => ({
         margin: '0px',
         display: 'flex',
         flexWrap: 'wrap',
+        zIndex: theme.zIndex.drawer,
     },
     card: {
-        padding: '0px 0px 0px 0px',
-        margin: '130px 0 0 0px',
-        whiteSpace: 'pre-line'
-    },
-    media: {
-        height: 0,
-        paddingTop: '56.25%', // 16:9
+        padding: '0px 0px 600px 0px',
+        margin: '90px 0 0 0px',
+        whiteSpace: 'pre-line',
+        zIndex: theme.zIndex.drawer,
     },
     avatar: {
         backgroundColor: red[500],
+
     },
     appBar: {
         top: 'auto',
-        bottom: 0,
+        bottom: theme.spacing(0),
+        zIndex: theme.zIndex.drawer + 100,
     },
     textField: {
         marginLeft: theme.spacing(1),
@@ -55,30 +55,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function WorkText(props) {
-    const [answer, setAnswer] = useState({
-        fact: '',
-        url: '',
-        other_answers: [
-            {id: '123', fact:'a'},
-            {id: '124', fact:'b'},
-            {id: '125', fact:'c'},
-        ]
-    })
-
-    const questions = [
-        {
-            text: '事実確認できることを一つ入力してください',
-            type: 'text'
-        },
-        {
-            text: '事実'+ answer.fact +'は以下のものと似ていますか？',
-            type: 'multi_select'
-        },
-        {
-            text: '事実確認できるURL',
-            type: 'text'
-        }
-    ]
+    const [answer, setAnswer] = useState({})
 
     const classes = useStyles();
     const [tweetID, setTweetID] = useState("1270800417840959488")
@@ -88,6 +65,18 @@ function WorkText(props) {
         tweet_user_name: "user_name",
         tweet_user_header: "U"
     });
+    const [questions, setQuestions] = useState([{
+            text: '事実確認できること',
+            type: 'text'
+        },
+        {
+            text: '事実「' + answer.fact + '」は以下の事実と似ていますか？',
+            type: 'multi_select'
+        },
+        {
+            text: '事実確認できるURL',
+            type: 'text'
+        }])
     const [step, setStep] = useState(0)
 
     const [userInfo, setUserInfo] = useState({
@@ -119,7 +108,6 @@ function WorkText(props) {
                         tweet_user_header: r.tweet.tweet_user.name.charAt(0),
                         text: r.tweet.text,
                         date: moment(r.tweet.created_at).format('YYYY年M月D日 h時m分'),
-                        point: 1
                     }))
                 }
             ).catch((error) => {
@@ -154,16 +142,33 @@ function WorkText(props) {
         , [getTweet, props.user.authtoken, props.user.client, props.user.uid, props.user.work_id])
 
 
+    const getQuestion = () => {
+        let url = new URL(baseURL + '/get_questions');
+        url.searchParams.set('task_id', props.user.work_id);
 
+        fetch(url, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(r => {
+            return r.json()
+        }).then(r => {
+            setQuestions(r.questions)
+        });
+    }
 
     useEffect(() => {
         getTask()
-        console.log()
     }, [getTask])
 
+    useEffect(() => {
+        getQuestion()
+    }, [getQuestion])
+
     function handleClick(value) {
-        console.log('click '+JSON.stringify(value))
-        switch(step){
+        console.log('click ' + JSON.stringify(value))
+        switch (step) {
             case 0:
                 let f = answer
                 f.fact = String(value.text)
@@ -172,7 +177,19 @@ function WorkText(props) {
             default:
                 break;
         }
-        setStep(step + 1)
+        if (step >= 2) {
+            setStep(0)
+            getTask()
+        } else {
+            setStep(step + 1)
+        }
+
+    }
+
+    function handleBack() {
+        if (step > 0) {
+            setStep(step - 1);
+        }
     }
 
     return (
@@ -203,9 +220,10 @@ function WorkText(props) {
                     </Typography>
                 </CardContent>
             </Card>
-            <AppBar position="fixed" color="transparent" className={classes.appBar}>
+            <AppBar position="fixed" className={classes.appBar} color={"inherit"}>
                 <Toolbar>
-                    <WorkTextQuestion step={step} question={questions[step]} answer={answer} handleClick={(v) => handleClick(v)}/>
+                    <WorkTextQuestion step={step} question={questions[step]} answer={answer}
+                                      handleClick={(v) => handleClick(v)} handleBack={() => handleBack()}/>
                 </Toolbar>
             </AppBar>
         </Fragment>

@@ -12,11 +12,11 @@ const useStyles = makeStyles(theme => ({
     },
     textField: {
         float: 'left'
-
     },
     Button: {
-        float: 'right'
-    }
+        float: 'right',
+        marginLeft: theme.spacing(10)
+    },
 }));
 
 function WorkTextInputText(props) {
@@ -40,12 +40,20 @@ function WorkTextInputText(props) {
 
                         <Form width={1}>
                             {isSubmitting && <LinearProgress/>}
-
+                            <Button
+                                variant="contained"
+                                color="primary"
+                                disabled={isSubmitting}
+                                onClick={props.handleBack}
+                                className={classes.Button}
+                            >
+                                戻る
+                            </Button>
                             <Box width={1}>
                                 <Field
                                     component={TextField}
                                     name={"text"}
-                                    label={'Step' + props.text}
+                                    label={'Step' + String(parseInt(props.step)+1) +'. '+ props.text}
                                     type="text"
                                     placeholder={props.text}
                                     margin="normal"
@@ -59,6 +67,8 @@ function WorkTextInputText(props) {
                                     className={classes.textField}
                                 />
                             </Box>
+
+
 
                             <Button
                                 variant="contained"
